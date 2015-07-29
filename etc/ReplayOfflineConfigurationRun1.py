@@ -158,6 +158,8 @@ addDataset(tier0Config, "Default",
 #           tape_node = "T1_US_FNAL_MSS",
 #           disk_node = "T1_CH_FNAL_Disk",
            blockCloseDelay = 1200,
+           timePerEvent = 5, #I have to get some stats to set this properly
+           sizePerEvent = 1500000, #I have to get some stats to set this properly
            scenario = ppScenario)
 
 ###############################
@@ -441,6 +443,8 @@ addExpressConfig(tier0Config, "HIExpress",
                  maxLatency = 15 * 23,
                  periodicHarvestInterval = 20 * 60,
                  blockCloseDelay = 1200,
+                 timePerEvent = 4, #I have to get some stats to set this properly
+                 sizePerEvent = 1700000, #I have to get some stats to set this properly
                  versionOverride = expressVersionOverride)
 
 addExpressConfig(tier0Config, "Express",
@@ -459,6 +463,8 @@ addExpressConfig(tier0Config, "Express",
                  maxLatency = 15 * 23,
                  periodicHarvestInterval = 20 * 60,
                  blockCloseDelay = 1200,
+                 timePerEvent = 4, #I have to get some stats to set this properly
+                 sizePerEvent = 1700000, #I have to get some stats to set this properly
                  versionOverride = expressVersionOverride)
 
 addExpressConfig(tier0Config, "ExpressCosmics",
@@ -477,6 +483,8 @@ addExpressConfig(tier0Config, "ExpressCosmics",
                  maxLatency = 15 * 23,
                  periodicHarvestInterval = 20 * 60,
                  blockCloseDelay = 1200,
+                 timePerEvent = 4, #I have to get some stats to set this properly
+                 sizePerEvent = 1700000, #I have to get some stats to set this properly
                  versionOverride = expressVersionOverride)
 
 #addExpressConfig(tier0Config, "HLTMON",

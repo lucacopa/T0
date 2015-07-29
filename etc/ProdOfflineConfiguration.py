@@ -158,6 +158,8 @@ addDataset(tier0Config, "Default",
            tape_node = "T1_US_FNAL_MSS",
            disk_node = "T1_US_FNAL_Disk",
            blockCloseDelay = 24 * 3600,
+           timePerEvent = 5,
+           sizePerEvent = 1500000,
            scenario = ppScenario)
 
 ###############################
@@ -168,11 +170,15 @@ addDataset(tier0Config, "Cosmics",
            do_reco = True,
            write_reco = True, write_aod = True, write_miniaod = False, write_dqm = True,
            alca_producers = [ "TkAlCosmics0T", "MuAlGlobalCosmics", "HcalCalHOCosmics", "DtCalibCosmics" ],
+           timePerEvent = 0.5,
+           sizePerEvent = 155000,
            scenario = cosmicsScenario)
 
 addDataset(tier0Config, "Commissioning",
            do_reco = True,
            alca_producers = [ "TkAlMinBias", "SiStripCalMinBias" ],
+           timePerEvent = 12,
+           sizePerEvent = 4000000,
            scenario = ppScenario)
 
 datasets = [ "NoBPTX" ]
@@ -223,6 +229,8 @@ addDataset(tier0Config,"AlCaLumiPixels",
            reco_split = alcarawSplitting,
            proc_version = alcarawProcVersion,
            alca_producers = [ "LumiPixels" ],
+           timePerEvent = 0.02,
+           sizePerEvent = 38000,
            scenario = "AlCaLumiPixels")
 
 ########################################################
@@ -435,6 +443,8 @@ addExpressConfig(tier0Config, "Express",
                  maxLatency = 15 * 23,
                  periodicHarvestInterval = 20 * 60,
                  blockCloseDelay = 1200,
+                 timePerEvent = 4,
+                 sizePerEvent = 1700000,
                  versionOverride = expressVersionOverride)
 
 addExpressConfig(tier0Config, "ExpressCosmics",
@@ -454,6 +464,8 @@ addExpressConfig(tier0Config, "ExpressCosmics",
                  maxLatency = 15 * 23,
                  periodicHarvestInterval = 20 * 60,
                  blockCloseDelay = 1200,
+                 timePerEvent = 4, #I have to get some stats to set this properly
+                 sizePerEvent = 1700000, #I have to get some stats to set this properly
                  versionOverride = expressVersionOverride)
 
 #######################
