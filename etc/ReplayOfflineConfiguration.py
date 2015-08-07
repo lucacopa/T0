@@ -175,6 +175,7 @@ addDataset(tier0Config, "Cosmics",
            do_reco = True,
            write_reco = True, write_aod = True, write_miniaod = False, write_dqm = True,
            alca_producers = [ "TkAlCosmics0T", "MuAlGlobalCosmics", "HcalCalHOCosmics", "DtCalibCosmics" ],
+           physics_skims = [ "CosmicSP", "CosmicTP", "LogError", "LogErrorMonitor" ],
            timePerEvent = 0.5,
            sizePerEvent = 155,
            scenario = cosmicsScenario)
@@ -183,6 +184,7 @@ addDataset(tier0Config, "Commissioning",
            do_reco = True,
            alca_producers = [ "TkAlMinBias", "SiStripCalMinBias" ],
            dqm_sequences = [ "@common", "@hcal" ],
+           physics_skims = [ "EcalActivity", "LogError", "LogErrorMonitor" ],
            timePerEvent = 12,
            sizePerEvent = 4000,
            scenario = ppScenario)
@@ -192,6 +194,7 @@ datasets = [ "NoBPTX" ]
 for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "Jet", "EGamma" ]
@@ -223,6 +226,7 @@ for dataset in datasets:
 addDataset(tier0Config, "HcalNZS",
            do_reco = True,
            alca_producers = [ "HcalCalMinBias" ],
+           physics_skims = [ "LogError", "LogErrorMonitor" ],
            timePerEvent = 4.2,
            sizePerEvent = 1900,
            scenario = hcalnzsScenario)
@@ -254,6 +258,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "SiStripCalZeroBias", "TkAlMinBias", "LumiPixelsMinBias" ],
                dqm_sequences = [ "@commonSiStripZeroBias", "@ecal", "@hcal", "@muon" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                timePerEvent = 3.5,
                sizePerEvent = 1500,
                scenario = ppScenario)
@@ -270,6 +275,7 @@ for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
                alca_producers = [ "SiStripCalMinBias", "TkAlMinBias" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 ################################
@@ -278,13 +284,21 @@ for dataset in datasets:
 
 datasets = [ "CastorJets", "EGMLowPU", "EmptyBX", "FSQJets1", "FSQJets2", "FSQJets3", 
              "FullTrack", "HINCaloJet40", "HINCaloJetsOther", "HINMuon", "HINPFJetsOther", 
-             "HINPhoton", "HcalHPDNoise", "HighMultiplicity85", "L1MinimumBias",
+             "HINPhoton", "HighMultiplicity85", "L1MinimumBias",
              "L1MinimumBiasHF1", "L1MinimumBiasHF2", "L1MinimumBiasHF3", "L1MinimumBiasHF4",
              "L1MinimumBiasHF5", "L1MinimumBiasHF6", "L1MinimumBiasHF7", "L1MinimumBiasHF8" ]
 
 for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
+               scenario = ppScenario)
+
+datasets = [ "HcalHPDNoise" ]
+
+for dataset in datasets:
+    addDataset(tier0Config, dataset,
+               do_reco = True,
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 ################################
@@ -307,13 +321,23 @@ datasets = [ "BTagCSV", "DisplacedJet" ]
 for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
-datasets = [ "DoubleMuonLowMass", "MuonEG" ]
+datasets = [ "MuonEG" ]
 
 for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
+               physics_skims = [ "TopMuEG", "LogError", "LogErrorMonitor" ],
+               scenario = ppScenario)
+
+datasets = [ "DoubleMuonLowMass" ]
+
+for dataset in datasets:
+    addDataset(tier0Config, dataset,
+               do_reco = True,
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "HTMHT" ]
@@ -321,6 +345,7 @@ datasets = [ "HTMHT" ]
 for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                timePerEvent = 9.4,
                sizePerEvent = 2000,
                scenario = ppScenario)
@@ -330,6 +355,7 @@ datasets = [ "Tau" ]
 for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "BTagMu" ]
@@ -337,6 +363,7 @@ datasets = [ "BTagMu" ]
 for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "Charmonium" ]
@@ -345,6 +372,7 @@ for dataset in datasets:
     addDataset(tier0Config, dataset,
                do_reco = True,
                alca_producers = [ "TkAlJpsiMuMu" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "DoubleEG" ]
@@ -354,6 +382,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "EcalCalZElectron", "EcalUncalZElectron", "HcalCalIterativePhiSym" ],
                dqm_sequences = [ "@common", "@ecal", "@egamma" ],
+               physics_skims = [ "ZElectron", "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "SingleMu" ]
@@ -371,6 +400,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "TkAlMuonIsolated", "HcalCalIterativePhiSym", "DtCalib", "MuAlCalIsolatedMu", "MuAlOverlaps", "MuAlZMuMu" ],
                dqm_sequences = [ "@common", "@muon" ],
+               physics_skims = [ "ZMu", "MuTau", "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "DoubleMu" ]
@@ -388,6 +418,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "TkAlZMuMu", "MuAlCalIsolatedMu", "MuAlOverlaps", "MuAlZMuMu", "DtCalib" ],
                dqm_sequences = [ "@common", "@muon" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "JetHT" ]
@@ -397,6 +428,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "HcalCalDijets" ],
                dqm_sequences = [ "@common", "@jetmet", "@hcal" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                timePerEvent = 5.7,
                sizePerEvent = 2250,
                scenario = ppScenario)
@@ -408,6 +440,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "HcalCalNoise" ],
                dqm_sequences = [ "@common", "@jetmet", "@hcal" ],
+               physics_skims = [ "HighMET", "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "MuOnia" ]
@@ -417,6 +450,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "TkAlUpsilonMuMu" ],
                dqm_sequences = [ "@common", "@muon" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "SingleElectron" ]
@@ -426,6 +460,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "EcalCalWElectron", "EcalUncalWElectron", "EcalCalZElectron", "EcalUncalZElectron", "HcalCalIterativePhiSym" ],
                dqm_sequences = [ "@common", "@ecal", "@egamma" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "TestEnablesEcalHcal" ]
@@ -443,6 +478,7 @@ for dataset in datasets:
                do_reco = True,
                alca_producers = [ "HcalCalGammaJet" ],
                dqm_sequences = [ "@common", "@ecal", "@egamma" ],
+               physics_skims = [ "LogError", "LogErrorMonitor" ],
                scenario = ppScenario)
 
 datasets = [ "DoublePhoton" ]
